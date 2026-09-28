@@ -12,6 +12,9 @@ Inside: PostgreSQL as the queue (FOR UPDATE SKIP LOCKED, no broker), job state m
 **[tg-intake](https://github.com/daniil4545/tg-intake)** - intake agent: a multimodal model reads voice messages and screenshots, a round-based interview turns raw feedback into a usable description, the ticket goes to GitHub Issues. Second mode answers from the repository docs with a link to the source.  
 Inside: a model per pipeline step instead of one for everything (multimodal for attachments, prefix-cached chat model for the interview), PostgreSQL as the queue, OpenRouter, GitHub REST API.
 
+**[lead-qualifier](https://github.com/daniil4545/lead-qualifier)** - lead qualification engine on an LLM agent: the model talks to the lead and calls tools, Go validates every step before any side effect, a critic checks replies, qualified leads book a meeting. Built from a production service, with the client's data replaced by a fictional company.  
+Inside: tool calling with strict JSON Schema, deterministic decision rules and guardrails with a test per rule, state and outbox in PostgreSQL, business data in a catalog directory (a second catalog passes the same tests without code changes), offline golden dialogs and a prompt eval runner. Go, console demo.
+
 **[tg-agent-mcp](https://github.com/daniil4545/tg-agent-mcp)** - MCP server that gives a Claude Code agent hands in Telegram: find a person, write, read a dialog, run a campaign over a ready recipient list.  
 Inside: pacing, send window and daily cap live in PostgreSQL, so a restart cannot bypass them; one message per person across campaigns; a Telegram flood limit stops the account until a human resumes it; a second agent token only reaches an allow-list. Go, MTProto, official MCP go-sdk.
 
