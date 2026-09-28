@@ -12,11 +12,8 @@ Inside: PostgreSQL as the queue (FOR UPDATE SKIP LOCKED, no broker), job state m
 **[tg-intake](https://github.com/daniil4545/tg-intake)** - intake agent: a multimodal model reads voice messages and screenshots, a round-based interview turns raw feedback into a usable description, the ticket goes to GitHub Issues. Second mode answers from the repository docs with a link to the source.  
 Inside: a model per pipeline step instead of one for everything (multimodal for attachments, prefix-cached chat model for the interview), PostgreSQL as the queue, OpenRouter, GitHub REST API.
 
-**[ccnotify](https://github.com/daniil4545/ccnotify)** - macOS notifications for Claude Code session events; a click brings you back to that exact session.  
-Inside: runs on agent hooks, tells apart end of turn, permission request and waiting for input, quiet rules to cut the noise, parallel sessions kept apart by a lock on the state file. Go, MIT, releases via GitHub Actions.
-
-**[ai-dev-digest](https://github.com/daniil4545/ai-dev-digest)** - daily AI/dev digest from 13 sources, scored by a local LLM (Ollama).  
-Inside: per-source failure isolation, heuristic fallback when the model is unavailable, cross-run dedup in SQLite.
+**[tg-agent-mcp](https://github.com/daniil4545/tg-agent-mcp)** - MCP server that gives a Claude Code agent hands in Telegram: find a person, write, read a dialog, run a campaign over a ready recipient list.  
+Inside: pacing, send window and daily cap live in PostgreSQL, so a restart cannot bypass them; one message per person across campaigns; a Telegram flood limit stops the account until a human resumes it; a second agent token only reaches an allow-list. Go, MTProto, official MCP go-sdk.
 
 **[modbus-emulator](https://github.com/daniil4545/modbus-emulator)** - Modbus device emulator for integration testing of industrial gateways without hardware.  
 Inside: three transports (Modbus TCP, RTU-over-TCP, serial RTU over PTY), device fleet generator from a template, simulated register dynamics.
