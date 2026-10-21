@@ -6,7 +6,7 @@ The AI side is not only my own code: I introduced AI-assisted development in a t
 
 ## Projects
 
-**[transcrib](https://github.com/daniil4545/transcrib)** - Telegram bot that turns an online meeting (Zoom, Meet, Telemost) into a speaker-labeled transcript and an AI summary with action items. Ran in production with YooKassa subscriptions until the product was closed in September 2026.  
+**[transcrib](https://github.com/daniil4545/transcrib)** - Telegram bot that turns an online meeting (Zoom, Meet, Telemost) into a speaker-labeled transcript and an AI summary with action items. Live in production, subscriptions through YooKassa.  
 Inside: PostgreSQL as the queue (FOR UPDATE SKIP LOCKED, no broker), job state machine, idempotent payments, 55% of the codebase is tests.
 
 **[lead-qualifier](https://github.com/daniil4545/lead-qualifier)** - lead qualification engine on an LLM agent: the model talks to the lead and calls tools, Go validates every step before any side effect, a critic checks replies, qualified leads book a meeting. Built from a production service, with the client's data replaced by a fictional company.  
