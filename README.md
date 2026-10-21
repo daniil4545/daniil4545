@@ -6,6 +6,9 @@ The AI side is not only my own code: I introduced AI-assisted development in a t
 
 ## Projects
 
+**[tix](https://github.com/daniil4545/tix)** - task tracker for AI coding agents: markdown tasks under git in one folder, agents (Claude Code, Codex) work through a CLI, a person steers on a terminal board. Every edit is a commit that names the agent session and model behind it, and a comment on a task reaches the agent that holds it.  
+Inside: lock, temp file and rename for safe writes, a 3-hour claim on a task, a short context brief for agents under 2000 characters, hooks for Claude Code and Codex, TUI. Go, CI on macOS and Linux, v0.1.0 with binaries.
+
 **[transcrib](https://github.com/daniil4545/transcrib)** - Telegram bot that turns an online meeting (Zoom, Meet, Telemost) into a speaker-labeled transcript and an AI summary with action items. Live in production, subscriptions through YooKassa.  
 Inside: PostgreSQL as the queue (FOR UPDATE SKIP LOCKED, no broker), job state machine, idempotent payments, 55% of the codebase is tests.
 
